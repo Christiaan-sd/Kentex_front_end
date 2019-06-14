@@ -1,5 +1,5 @@
 export class Opties {
-    constructor(private id: number,
-        public optie: string)
+    constructor(public id: number,
+        public optie?: string)
         {}
 }
