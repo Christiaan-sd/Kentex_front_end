@@ -1,0 +1,18 @@
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
+
+    <!-- <form #aanmelden="ngForm" (ngSubmit)="inlogCheck(aanmelden)"  > -->
+
+    <form #aanmelden="ngForm" (ngSubmit)="inlogCheck(aanmelden)"  >
+        <table>
+          <th>Login</th>
+         <tr><input name="Gebruikersnaam" [(ngModel)]="account.gebruikersnaam" placeholder="Gebruikersnaam" ></tr>
+         <tr><input type="password" name="Wachtwoord" [(ngModel)]="account.wachtwoord" placeholder="Wachtwoord" ></tr>
+         <tr><input type="password" name="Auth" [(ngModel)]="Auth" placeholder="Beheerder token" ></tr>
+          <tr>
+            <button type="submit" class="btn btn-primary">Login</button>
+      
+          </tr>
+        </table>
+      </form>
+
+  </div>

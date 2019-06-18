@@ -43,6 +43,8 @@ export class RapportageHistorieService {
   // a la opties service
 
   save(rapportageHistorie: RapportageHistorie): Observable<RapportageHistorie> {
+    console.log("In Service");
+    console.log(rapportageHistorie);
 
    return this.http.post<RapportageHistorie>(this.url+this.endpoint, rapportageHistorie);
 

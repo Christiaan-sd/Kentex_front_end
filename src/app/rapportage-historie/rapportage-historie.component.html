@@ -1,23 +1,22 @@
 
 
-
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
 
 <form #Rapportage_input="ngForm" (ngSubmit)="nu()" >
     <table>
-      
     Kenteken: <input type="text" name="fname" placeholder="XX-XX-XX"><br>
-<!--     
+    
 <label for="targetSelect">Select an additional target</label>
 <select [(ngModel)]="this.selectedTargetToAdd" (change)="this.errorsTargets='';" class="custom-select custom-select-md" id="targetSelect">
 <option *ngFor="let target of this.availableTargets" value={{target.id}}>
 {{target.description}}
 </option>
-</select> -->
+</select>
 
     <tr *ngFor="let Opties of rapportagehistorie">
         <td><input type="checkbox" ngModel [name]="Opties.naam" >"test"</td>
     </tr>
-    <tr>   <button type="submit">Opties Opslaan</button></tr>
+    <tr>   <button type="submit" class="btn btn-outline-success">Opties Opslaan</button></tr>
      
     </table>
 </form>
@@ -33,4 +32,6 @@
   <!-- filteren op basis van rapportage-historie -->
 
 
-     
+</div>
+
+<app-input-container></app-input-container>
