@@ -1,22 +1,20 @@
 <!-- (ngSubmit)="verwerken(keuzen)"  -->
 
-
-
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
+<!-- <div class="col-md-10 col-lg-8 col-xl-7 mx-auto"> -->
 <form #keuzen="ngForm" (ngSubmit)="VerstuurNaarDB(keuzen)"  >
   <table>
-    <th>Opties:</th>
+    <th>Maak uw custom Kenteken rapportage:</th>
    <tr>Naam: <input name="name" [(ngModel)]="name" ></tr>
-   <p>Value: {{ name }}</p>
     <tr *ngFor="let optie of opties">
       <!-- <td>{{optie.optie}}</td> -->
-      <td><input type="checkbox" ngModel [name]="optie.id" > {{optie.optie}}</td>
+      <td><input type="checkbox"  class="form-check-input" ngModel [name]="optie.id" > {{optie.optie}}</td>
     </tr>
     <tr>
-      <button type="submit">Opties Opslaan</button>
+      <button type="submit" class="btn btn-primary">Opties Opslaan</button>
 
     </tr>
   </table>
-  <pre>
-     {{keuzen.value|json}}
-  </pre>
 </form>
+<app-input-container></app-input-container>
+</div>

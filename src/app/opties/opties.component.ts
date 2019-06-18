@@ -59,8 +59,6 @@ export class OptiesComponent implements OnInit {
     }
     let rapportageHistorie = new RapportageHistorie(this.name, enabledOpties);
 
-    console.log(rapportageHistorie);
-
     this.rapportageHistorieService.save(rapportageHistorie).subscribe(terugontvangenRapportageHistorie => {
       console.log(terugontvangenRapportageHistorie);
     }); // krijgt een observable terug dus .subscribe (terugontvangenResult)

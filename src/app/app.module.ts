@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { HoofdmenuComponent } from './menus/hoofdmenu/hoofdmenu.component';
 import { OptiesComponent } from './opties/opties.component';
 import { RapportageHistorieComponent } from './rapportage-historie/rapportage-historie.component';
+import { InputContainerComponent } from './input-container/input-container.component';
+import { DatacontainerComponent } from './datacontainer/datacontainer.component';
+import { LoginInfoComponent } from './login-info/login-info.component';
+import { AanmeldenComponent } from './aanmelden/aanmelden.component';
 
 
 @NgModule({
@@ -15,7 +19,11 @@ import { RapportageHistorieComponent } from './rapportage-historie/rapportage-hi
     AppComponent,
     HoofdmenuComponent,
     OptiesComponent,
-    RapportageHistorieComponent
+    RapportageHistorieComponent,
+    InputContainerComponent,
+    DatacontainerComponent,
+    LoginInfoComponent,
+    AanmeldenComponent
   ],
   imports: [
     BrowserModule,

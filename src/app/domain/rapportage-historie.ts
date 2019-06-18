@@ -2,10 +2,9 @@ import { Opties } from './opties';
 
 export class RapportageHistorie {
 
-    constructor(public naam: string,
+    constructor(
+        public naam: string,
         public opties: Opties[]){
-
-
         }  
 
 
