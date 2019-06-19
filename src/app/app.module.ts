@@ -12,7 +12,8 @@ import { InputContainerComponent } from './input-container/input-container.compo
 import { DatacontainerComponent } from './datacontainer/datacontainer.component';
 import { LoginInfoComponent } from './login-info/login-info.component';
 import { AanmeldenComponent } from './aanmelden/aanmelden.component';
-import { PushNotificationsModule } from 'ng-push'; //import the module
+import { PushNotificationsModule } from 'ng-push';
+import { AccountcreateComponent } from './accountcreate/accountcreate.component'; //import the module
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { PushNotificationsModule } from 'ng-push'; //import the module
     InputContainerComponent,
     DatacontainerComponent,
     LoginInfoComponent,
-    AanmeldenComponent
+    AanmeldenComponent,
+    AccountcreateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,35 @@
+
+  
+  <form #formulier="ngForm" (ngSubmit)="versturen(formulier)">
+  
+      <br>Voornaam:<br>
+      <input [(ngModel)]="account.voornaam"
+          name="Voornaam" required>
+
+          <br>Achternaam:<br>
+    <input [(ngModel)]="account.achternaam"
+        name="Achternaam" required>
+
+    <br>Gebruikersnaam:<br>
+    <input [(ngModel)]="account.gebruikersnaam"
+        name="Gebruikersnaam" required>
+  
+  
+    <br><br>Wachtwoord:<br>
+    <input type="password"  [(ngModel)]="account.wachtwoord"
+        name="wachtwoord" required>
+  
+    <br><br>Herhaal het wachtwoord:<br>
+    <input type="password"  [(ngModel)]="wachtwoordcheck"
+        name="wachtwoord2" required>
+
+  
+        <br><p style="color:red;">{{wwerror}}</p>
+  
+  
+    <br><br><input type="submit" value="Volgende" 
+        [disabled]="formulier.invalid">
+
+        <br>
+  </form>
+  
