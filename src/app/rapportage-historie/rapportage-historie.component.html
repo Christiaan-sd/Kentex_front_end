@@ -2,31 +2,40 @@
 
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
 
-<form #Rapportage_input="ngForm" (ngSubmit)="nu()" >
+<form #kenteken_zoek="ngForm" (ngSubmit)="nu(kenteken_zoek)">
+ Kenteken: <input name="name" [(ngModel)]="name" placeholder="XX-XX-XX">
+ <button type="submit" class="btn btn-outline-success">Zoeken</button>
+</form>
+
+
+
+<form #Rapportage_input="ngForm" (ngSubmit)="nu(Rapportage_input)" >
     <table>
-    Kenteken: <input type="text" name="fname" placeholder="XX-XX-XX"><br>
+    Kenteken: <input type="text" name="kenteken" placeholder="XX-XX-XX"><br>
     
-<label for="targetSelect">Select an additional target</label>
-<select [(ngModel)]="this.selectedTargetToAdd" (change)="this.errorsTargets='';" class="custom-select custom-select-md" id="targetSelect">
-<option *ngFor="let target of this.availableTargets" value={{target.id}}>
-{{target.description}}
+
+<select name="rapportage-historie" [(ngModel)] = "rapportageHistorie.id">
+<option *ngFor="let rap of this.rapportageHistorie" value={{rap.id}}>
+    {{rap.naam}}
+    
 </option>
 </select>
-
-    <tr *ngFor="let Opties of rapportagehistorie">
-        <td><input type="checkbox" ngModel [name]="Opties.naam" >"test"</td>
-    </tr>
     <tr>   <button type="submit" class="btn btn-outline-success">Opties Opslaan</button></tr>
      
     </table>
 </form>
 
 <pre>
-
+        
 {{Rapportage_input.value|json}}
+{{Rap}}
+{{kenteken_zoek.value|json}}
+
 </pre>
 
   <!-- dan gevensophalen van de rdw op basis kenteken -->
+
+
 
   
   <!-- filteren op basis van rapportage-historie -->
@@ -34,4 +43,8 @@
 
 </div>
 
-<app-input-container></app-input-container>
+<!-- DUMP -->
+   <!-- <tr *ngFor="let Opties of rapportagehistorie">
+        <td><input type="checkbox" ngModel [name]="Opties.naam" >"test"</td>
+    </tr> -->
+<!-- EINDE DUMP -->

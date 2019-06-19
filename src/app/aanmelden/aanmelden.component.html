@@ -2,7 +2,7 @@
 
     <!-- <form #aanmelden="ngForm" (ngSubmit)="inlogCheck(aanmelden)"  > -->
 
-    <form #aanmelden="ngForm" (ngSubmit)="inlogCheck(aanmelden)"  >
+    <form #aanmelden="ngForm" (ngSubmit)="versturen(aanmelden)"  >
         <table>
           <th>Login</th>
          <tr><input name="Gebruikersnaam" [(ngModel)]="account.gebruikersnaam" placeholder="Gebruikersnaam" ></tr>
@@ -16,3 +16,9 @@
       </form>
 
   </div>
+  {{foutmelding}}
+  <!-- <div  class="alert alert-danger" role="alert">
+      {{foutmelding}}
+  </div> -->
+
+
