@@ -11,6 +11,6 @@ export class RapportageHistorie {
 
     // hierin moet je dus dezelfde structuur als in de Spring Boot app maken
 
-    id:Number;
+    id:number;
    
 }

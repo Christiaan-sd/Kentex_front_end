@@ -3,6 +3,9 @@ import { NgForm } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { Account } from '../domain/account';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PushNotificationsService} from 'ng-push';
+
 
 @Component({
   selector: 'app-aanmelden',
@@ -11,27 +14,41 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AanmeldenComponent implements OnInit {
 
-  account: Account = new Account(1, "", "", "", "");
+  account: Account = new Account();
   
 
 
-  constructor(private loginService: LoginService) { }
+  constructor(private route: ActivatedRoute,
+    private loginService: LoginService,
+    private router: Router) { }
   ngOnInit() {
 
   }
 
-  inlogCheck(aanmelden: NgForm) {
+  // inlogCheck(aanmelden: NgForm) {
 
-    console.log(aanmelden.value);
-    this.loginService.checkLogin(this.account).subscribe(
-      (account: Account) => {
-        this.account = account;
-        this.loginService.account = account;
-      },
+  //   console.log(aanmelden.value);
+  //   this.loginService.checkLogin(this.account.gebruikersnaam, this.account.wachtwoord).subscribe(
+  //     (account: Account) => {
+  //       this.account = account;
+  //       this.loginService.activeaccount = account;
+  //     },
 
-    (fout: HttpErrorResponse) => alert("er is iets fout gegaan"),
-    ()=>{})
+  //   (fout: HttpErrorResponse) => alert("er is iets fout gegaan"),
+  //   ()=>{})
 
+  // }
+  foutmelding : String;
+  versturen(aanmelden: NgForm) {
+    this.loginService.checkLogin(this.account.gebruikersnaam, this.account.wachtwoord).subscribe(
+      account  => { 
+        this.loginService.activeaccount = account; 
+        console.log(account);
+       },
+      error => {console.log(error.message);
+       this.foutmelding = "Het emailadres is niet bekend of het wacthwoord is verkeed."},
+      // () => this.router.navigate(['home'] )
+    )
   }
-
+    
 }
