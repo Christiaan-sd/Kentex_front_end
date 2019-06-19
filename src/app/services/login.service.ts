@@ -28,5 +28,8 @@ export class LoginService {
     console.log(`${environment.kentexurl}aanmelden`);
     return this.http.put<Account>(`${environment.kentexurl}gebruiker/aanmelden`, account, this.httpOptions);
   }
-
+  public create(account: Account): Observable<Account> {
+    return this.http.post<Account>(`${environment.kentexurl}Account`,
+        account, this.httpOptions)
+  }
 }
