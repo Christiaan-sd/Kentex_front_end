@@ -1,5 +1,8 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
-    <app-accountcreate></app-accountcreate>
+    
+
+    <div class="row">
+        <div class="col">
     <br>
     <!-- <form #aanmelden="ngForm" (ngSubmit)="inlogCheck(aanmelden)"  > -->
 
@@ -8,18 +11,27 @@
           <th>Login</th>
          <tr><input name="Gebruikersnaam" [(ngModel)]="account.gebruikersnaam" placeholder="Gebruikersnaam" ></tr>
          <tr><input type="password" name="Wachtwoord" [(ngModel)]="account.wachtwoord" placeholder="Wachtwoord" ></tr>
-         <tr><input type="password" name="Auth" [(ngModel)]="Auth" placeholder="Beheerder token" ></tr>
-          <tr>
+        
+          <tr>   
             <button type="submit" class="btn btn-primary">Login</button>
       
           </tr>
         </table>
       </form>
+    {{goedmelding}}
+      {{foutmelding}}
+  
+</div>
 
-  </div>
-  {{foutmelding}}
+  <div class="col">  
+  
+
+      <app-accountcreate></app-accountcreate>
+    </div>
+  
   <!-- <div  class="alert alert-danger" role="alert">
       {{foutmelding}}
   </div> -->
 
 
+</div>

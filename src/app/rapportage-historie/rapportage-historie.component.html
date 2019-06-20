@@ -1,50 +1,36 @@
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    <form #kenteken_zoek="ngForm" (ngSubmit)="nu(kenteken_zoek)">
+        <table>
+            <tr>Kenteken:<input name="name" [(ngModel)]="name" placeholder="XX-XX-XX"></tr>
+            <!-- SELECTOR RAPPORTAGE -->
+            <div *ngIf="rapportageHistorie">
+                Rapportage: <select id="RapportageSelector" name="rapportage-historie"
+                    [(ngModel)]="rapportageHistorie.id" (click)="selecteerRapportage(rapportageHistorie.id)">
+                   
+                    
+                    <option *ngFor="let rap of rapportageHistorie" 
+                        [value]="rap.id" [attr.selected]="rap.id == 70 ? true : null">{{rap.naam}}</option>
+                </select>
+
+            </div>
+            <!-- EINDE SELECTOR RAPPORTAGE -->
 
 
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
-
-<form #kenteken_zoek="ngForm" (ngSubmit)="nu(kenteken_zoek)">
- Kenteken: <input name="name" [(ngModel)]="name" placeholder="XX-XX-XX">
- <button type="submit" class="btn btn-outline-success">Zoeken</button>
-</form>
+            <tr><button type="submit" class="btn btn-primary">Zoeken</button></tr>
+        </table>
+    </form>
 
 
+    <div *ngIf="selectedOpties ">
+        <div *ngFor="let optie of selectedOpties">
 
-<form #Rapportage_input="ngForm" (ngSubmit)="nu(Rapportage_input)" >
-    <table>
-    Kenteken: <input type="text" name="kenteken" placeholder="XX-XX-XX"><br>
-    
+            {{optie.optie}} - {{getRdwData(optie.optie)}}
 
-<select name="rapportage-historie" [(ngModel)] = "rapportageHistorie.id">
-<option *ngFor="let rap of this.rapportageHistorie" value={{rap.id}}>
-    {{rap.naam}}
-    
-</option>
-</select>
-    <tr>   <button type="submit" class="btn btn-outline-success">Opties Opslaan</button></tr>
-     
-    </table>
-</form>
+        </div>
 
-<pre>
-        
-{{Rapportage_input.value|json}}
-{{Rap}}
-{{kenteken_zoek.value|json}}
+    </div>
 
-</pre>
-
-  <!-- dan gevensophalen van de rdw op basis kenteken -->
-
-
-
-  
-  <!-- filteren op basis van rapportage-historie -->
 
 
 </div>
-
-<!-- DUMP -->
-   <!-- <tr *ngFor="let Opties of rapportagehistorie">
-        <td><input type="checkbox" ngModel [name]="Opties.naam" >"test"</td>
-    </tr> -->
-<!-- EINDE DUMP -->

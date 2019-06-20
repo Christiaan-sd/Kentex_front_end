@@ -49,9 +49,11 @@ export class RapportageHistorieService {
    return this.http.post<RapportageHistorie>(this.url+this.endpoint, rapportageHistorie);
   }
 
-  rdw(rapportageHistorie: RapportageHistorie): Observable<RapportageHistorie>
+  rdw(name: string): Observable<any>
   {
-return this.http.get<RapportageHistorie>("https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken="+ name);
+    console.log(" In service" + name);
+    console.log("https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken="+ name.toUpperCase());
+    return this.http.get<RapportageHistorie>("https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken="+ name.toUpperCase());
   }
   
 
