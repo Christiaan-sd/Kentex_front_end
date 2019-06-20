@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+
 import { LoginService } from '../services/login.service';
 import { Account } from '../domain/account';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PushNotificationsService} from 'ng-push';
+import { timingSafeEqual } from 'crypto';
 
 
 @Component({
@@ -38,15 +40,17 @@ export class AanmeldenComponent implements OnInit {
   //   ()=>{})
 
   // }
+  goedmelding : String;
   foutmelding : String;
   versturen(aanmelden: NgForm) {
     this.loginService.checkLogin(this.account.gebruikersnaam, this.account.wachtwoord).subscribe(
       account  => { 
         this.loginService.activeaccount = account; 
         console.log(account);
+        this.goedmelding = "U bent ingelogd, Welkom " + this.account.gebruikersnaam
        },
       error => {console.log(error.message);
-       this.foutmelding = "Het emailadres is niet bekend of het wacthwoord is verkeed."},
+       this.foutmelding = "Het gebruikersnaam is niet bekend of het wacthwoord is verkeed."},
       // () => this.router.navigate(['home'] )
     )
   }

@@ -7,6 +7,8 @@ import { HttpClient, HttpEvent, HttpEventType, HttpProgressEvent,
   HttpRequest, HttpResponse} from '@angular/common/http';
 import { RapportageHistorieService } from '../services/rapportage-historie.service';
 import { RapportageHistorie } from '../domain/rapportage-historie';
+import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
 // import { ConsoleReporter } from 'jasmine';
 @Component({
   selector: 'app-opties',
@@ -20,9 +22,14 @@ export class OptiesComponent implements OnInit {
 
   opties: Opties[];
   constructor(private optiesService: OptiesService,
-          private rapportageHistorieService: RapportageHistorieService) { }
+          private rapportageHistorieService: RapportageHistorieService,
+          private loginService: LoginService,
+    private router: Router) { }
 
   ngOnInit() { 
+    if(this.loginService.activeaccount == null){
+      this.router.navigate(['aanmelden']);
+    }
     console.log(" In ngIOnInit");
     this.optiesService.retrieveAll().subscribe(
       (opties:Opties[]) => this.opties = opties ,

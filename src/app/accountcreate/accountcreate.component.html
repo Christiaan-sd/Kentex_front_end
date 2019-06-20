@@ -1,35 +1,40 @@
-
-  
+<br>
   <form #formulier="ngForm" (ngSubmit)="versturen(formulier)">
-  
-      <br>Voornaam:<br>
+      <table>
+          <th>Maak een account:</th>
+          <tr>Voornaam:<br>
       <input [(ngModel)]="account.voornaam"
-          name="Voornaam" required>
+          name="Voornaam" required></tr>
 
-          <br>Achternaam:<br>
+          <tr>Achternaam:<br>
     <input [(ngModel)]="account.achternaam"
-        name="Achternaam" required>
+        name="Achternaam" required></tr>
 
-    <br>Gebruikersnaam:<br>
+
+        <tr>Gebruikersnaam:<br>
     <input [(ngModel)]="account.gebruikersnaam"
-        name="Gebruikersnaam" required>
+        name="Gebruikersnaam" required></tr>
+
   
   
-    <br><br>Wachtwoord:<br>
+        <tr>Wachtwoord:<br>
     <input type="password"  [(ngModel)]="account.wachtwoord"
-        name="wachtwoord" required>
+        name="wachtwoord" required placeholder=""></tr>
+
   
-    <br><br>Herhaal het wachtwoord:<br>
+        <tr> Herhaal Wachtwoord:<br>
     <input type="password"  [(ngModel)]="wachtwoordcheck"
         name="wachtwoord2" required>
+      </tr>
 
   
-        <br><p style="color:red;">{{wwerror}}</p>
+       <p style="color:red;">{{wwerror}}</p>
   
   
-    <br><br><input type="submit" value="Volgende" 
+ <input class="btn btn-primary" type="submit" value="Registreer gebruiker" 
         [disabled]="formulier.invalid">
 
         <br>
+        </table>
   </form>
   
