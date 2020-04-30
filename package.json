@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "~8.0.0",
     "@angular/router": "~8.0.0",
     "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "kentekenplaat": "^1.0.6",
     "ng-push": "^0.2.2",
     "popper": "^1.0.1",
